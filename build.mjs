@@ -1,6 +1,9 @@
 import {readFile,writeFile} from 'node:fs/promises';
 import vm from 'node:vm';
 import {photoCard, detailPhoto, heroShowcase, flowPanel, processAccordion} from './src/visuals.mjs';
+import {illustrations} from './src/illustrations.mjs';
+import {refinePage} from './src/refinements.mjs';
+for(const [name,svg] of Object.entries(illustrations)) await writeFile(new URL(`dist/assets/${name}`,import.meta.url),svg);
 const original=await readFile(new URL('src/app-original.js',import.meta.url),'utf8');
 const services=vm.runInNewContext(original.slice(0,original.indexOf('const $'))+';services');
 const slugs=['plumbing-repairs','heating-cooling','drain-repairs','commercial-plumbing','bathroom-remodelling','gas-line-services'];
@@ -60,7 +63,9 @@ for(const [key,page] of Object.entries(pages)){
  html=html.replace(/<nav class="desktop-nav"[\s\S]*?<\/nav>/,`<nav class="desktop-nav" aria-label="Main navigation">${nav(key.startsWith('service-')?'services':key)}</nav>`).replace(/<nav id="mobile-nav"[\s\S]*?<\/nav>/,`<nav id="mobile-nav" class="mobile-nav" aria-label="Mobile navigation" hidden>${nav(key.startsWith('service-')?'services':key)}<button class="button" data-quote>Get a free quote</button></nav>`);
  if(key.startsWith('service-')){const index=services.findIndex(s=>'service-'+s.slug===key);html=html.replace(/<div class="detail-service-art reveal">[\s\S]*?<\/div><\/section>/,detailPhoto(index)+'</section>');}
  html=html.replace('The photography is reused from that site for this concept and is not verified project photography.','Photography combines images from the original website with AI-generated service illustrations. None is presented as verified TRST project photography.');
- html=html.replace('</body>','<script src="motion.js"></script></body>');
+ html=refinePage(key,html);
+ html=html.replace('</head>','<link rel="stylesheet" href="refinements.css"></head>');
+ html=html.replace('</body>','<script src="motion.js"></script><script src="refinements.js"></script></body>');
  await writeFile(new URL(`dist/${key}.html`,import.meta.url),html);
 }
 await writeFile(new URL('dist/styles.css',import.meta.url),await readFile(new URL('src/styles.css',import.meta.url)));
@@ -69,4 +74,5 @@ await writeFile(new URL('dist/app.js',import.meta.url),await readFile(new URL('s
 await writeFile(new URL('dist/visuals.css',import.meta.url),await readFile(new URL('src/visuals.css',import.meta.url)));
 await writeFile(new URL('dist/motion.js',import.meta.url),await readFile(new URL('src/motion.js',import.meta.url)));
 console.log(`Built ${Object.keys(pages).length} static pages.`);
+for(const file of ['refinements.css','refinements.js']) await writeFile(new URL(`dist/${file}`,import.meta.url),await readFile(new URL(`src/${file}`,import.meta.url)));
 

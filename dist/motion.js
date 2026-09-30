@@ -17,9 +17,4 @@
     reduce.addEventListener('change',event=>{paused=event.matches;syncPause();restart()});syncPause();restart();
   }
   document.querySelectorAll('.flow-toggle').forEach(button=>button.addEventListener('click',()=>{const panel=button.closest('.flow-panel'),paused=button.getAttribute('aria-pressed')!=='true';button.setAttribute('aria-pressed',String(paused));button.textContent=paused?'Play flow':'Pause flow';panel.classList.toggle('motion-paused',paused)}));
-  const steps=[...document.querySelectorAll('[data-home-step]')];
-  steps.forEach((button,index)=>button.addEventListener('click',()=>{
-    steps.forEach((other,i)=>{const panel=document.getElementById(other.getAttribute('aria-controls')),active=i===index;panel.getAnimations().forEach(a=>a.cancel());other.setAttribute('aria-expanded',String(active));other.closest('article').classList.toggle('is-open',active);if(active){panel.hidden=false;if(!reduce.matches)panel.animate([{height:'0px',opacity:0},{height:panel.scrollHeight+'px',opacity:1}],{duration:400,easing:'cubic-bezier(.22,.8,.3,1)'});}else panel.hidden=true;});
-    const number=document.querySelector('.process-live-number');if(number){number.textContent='0'+(index+1);if(!reduce.matches)number.animate([{opacity:0,transform:'translateY(15px)'},{opacity:1,transform:'translateY(0)'}],{duration:400})}
-  }));
 })();

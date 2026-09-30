@@ -12,3 +12,15 @@ The following new assets were created with the built-in image generation tool fo
 | `dist/assets/cooling-service.png` | Photorealistic editorial photograph, landscape 3:2, an adult technician in unbranded navy workwear servicing wall-mounted air conditioning in a modern commercial workspace. Natural daylight and realistic equipment. No logos, text or watermark. |
 
 The animated plumbing schematic is a conceptual service-navigation graphic, not an installation diagram or technical instruction. Its paths are animated in CSS and can be paused. OS reduced-motion preferences disable automatic animation.
+
+## Version 4 illustrations
+
+Original SVG illustrations are generated deterministically from `src/illustrations.mjs`:
+
+- `commercial-plumbing.svg`: commercial washroom fixtures and water distribution. Replaces the unrelated cooling-filter image.
+- `gas-services.svg`: conceptual meter, isolation valve and copper supply pipe. Replaces generic tools. This is not an installation diagram.
+- `step-enquiry.svg`: property and enquiry details.
+- `step-plan.svg`: property plan and scope checklist.
+- `step-agree.svg`: appointment and agreed details.
+
+All are labelled illustrations, not TRST jobs. Service cards distinguish original-site photographs, AI illustrations and vector illustrations. The original TRST logo is unchanged. Cooling imagery is now used on the heating and cooling page, where it is relevant.

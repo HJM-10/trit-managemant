@@ -65,6 +65,17 @@ Checks syntax, all 13 pages, local page/asset/anchor references, original logo, 
 
 ## Editing
 
+### Version 4 refinements
+
+- Water-blue, navy and copper palette; larger supporting text, labels and FAQ answers.
+- Home/business controls, linked benefit cards and service cards share hover and keyboard-focus movement, lighting and graphic feedback.
+- Three process scenes change with the selected step; arrow keys, Home and End work on the homepage steps.
+- FAQs animate both ways with a pipe-and-water detail. Topic filters combine with search and reset together.
+- Dedicated repair and drain guides, heating/cooling comparison, commercial facilities checklist, bathroom priority selector, gas enquiry guidance, review-reading prompts and a contact brief.
+- All new UI motion honours reduced-motion preferences. Quote data remains in memory only and is cleared when the modal closes.
+
+The new implementation lives in `src/refinements.mjs` (page content), `src/refinements.css` (design system), `src/refinements.js` (interactions), and `src/illustrations.mjs` (vector assets).
+
 - `build.mjs`: page content, route definitions and shared generated shell.
 - `src/template.html`: homepage and shared modal/icon template; the builder replaces its header and footer.
 - `src/app-original.js`: retained first-version service-data source, never delivered to browsers.
@@ -79,6 +90,8 @@ Checks syntax, all 13 pages, local page/asset/anchor references, original logo, 
 Run `npm run build` after editing. Generated `dist` files are committed for build-free static deployment.
 
 ## Static hosting
+
+`vercel.json` explicitly selects the Other/static framework, runs the build and publishes `dist`. It defines no function or catch-all route. This configuration is prepared for the future deployment investigation; the Vercel runtime exception has not been inspected or a live fix verified. The existing deployment returned `500 FUNCTION_INVOCATION_FAILED` on 30 September 2026. Vercel work was deferred at the user's request.
 
 Publish the **contents of `dist/`** with any static web host. Each page has its own HTML file; no API server or SPA fallback is required. For build settings, use `npm run build` and output directory `dist`.
 
