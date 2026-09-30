@@ -15,6 +15,14 @@ npm start
 
 Open **http://127.0.0.1:4173/**. You can also open `dist/index.html` directly in a modern browser; page links and local assets use relative paths.
 
+On Windows, keep the preview running independently of a terminal session:
+
+```sh
+npm run preview:background
+```
+
+This starts Node in a hidden background process, checks readiness and reuses an already running TRST preview. It must be started again after a reboot. If a cached homepage is visible but links fail with connection refused, the preview server has stopped: run this command, then reload the browser. Logs are `preview.log` and `preview-error.log` and are excluded from Git.
+
 ```sh
 npm run check
 ```
@@ -42,6 +50,10 @@ Checks syntax, all 13 pages, local page/asset/anchor references, original logo, 
 ## Interactions and accessibility
 
 - Page entrances, scroll reveals, floating details, hover feedback and reading progress, respecting `prefers-reduced-motion`.
+- Photographic service cards and service-page heroes, including new illustrative heating, cooling, drainage and bathroom imagery.
+- Homepage photo slideshow with manual selection and pause/play; it pauses on hover, keyboard focus and hidden browser tabs.
+- Plumbing-specific animated flow diagram and valve, with a pause control.
+- Homepage three-step accordion with slide-down panels and an animated step number.
 - Homepage switches between home and business messaging.
 - Service filters with a live result count.
 - Three-stage project guide with click, arrow key, Home and End support.
@@ -59,6 +71,7 @@ Checks syntax, all 13 pages, local page/asset/anchor references, original logo, 
 - `src/app.js`: shared interactive behavior.
 - `src/styles.css`: base visual system.
 - `src/enhancements.css`: page layouts, logo styling, responsive refinements and motion.
+- `src/visuals.mjs`, `src/visuals.css`, `src/motion.js`: service photography, plumbing graphic, slideshow and expanding process steps.
 - `dist/assets/`: original logo and photographs from the existing website.
 - `scripts/check.mjs`: static integrity checks.
 - `AGENTS.md`: persistent project preferences, including the Atarion Solutions URL.
@@ -75,7 +88,7 @@ Publish the **contents of `dist/`** with any static web host. Each page has its 
 
 The quote form **does not send or persist data**. It displays an on-page preview and clears entered details when closed. Phone and email links use the published business details and can contact the actual business when chosen.
 
-The Reviews page awaits genuine feedback and contains no invented customers, quotes or ratings. Confirm operating hours, coverage, qualifications, prices and service descriptions before launch. Gas-related work needs confirmed scope and qualifications. The original logo and photos are reused for this pitch; production reuse rights need confirmation. The photos are not represented as verified TRST projects.
+The Reviews page awaits genuine feedback and contains no invented customers, quotes or ratings. Confirm operating hours, coverage, qualifications, prices and service descriptions before launch. Gas-related work needs confirmed scope and qualifications. The original logo and photos are reused for this pitch; production reuse rights need confirmation. Additional service images are AI-generated illustrations. No photo is represented as a verified TRST project. See `ASSETS.md` for asset provenance and generation briefs.
 
 Before production: approve copy, provide authorised photography and reviews, connect and secure the enquiry backend, approve a privacy notice, and decide on indexing and analytics. See `PITCH.md` for the pitch narrative.
 

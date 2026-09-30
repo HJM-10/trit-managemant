@@ -1,13 +1,14 @@
 {
   "name": "trst-maintenance-prototype",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "private": true,
   "description": "TRST Maintenance multi-page pitch website by Atarion Solutions",
   "type": "module",
   "scripts": {
     "build": "node build.mjs",
     "start": "node server.mjs",
-    "check": "node --check build.mjs && node --check src/app.js && node scripts/check.mjs"
+    "preview:background": "powershell -NoProfile -File scripts/start-preview.ps1",
+    "check": "node --check build.mjs && node --check src/app.js && node --check src/motion.js && node scripts/check.mjs"
   },
   "engines": { "node": ">=20.11" }
 }

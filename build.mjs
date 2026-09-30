@@ -1,5 +1,6 @@
 import {readFile,writeFile} from 'node:fs/promises';
 import vm from 'node:vm';
+import {photoCard, detailPhoto, heroShowcase, flowPanel, processAccordion} from './src/visuals.mjs';
 const original=await readFile(new URL('src/app-original.js',import.meta.url),'utf8');
 const services=vm.runInNewContext(original.slice(0,original.indexOf('const $'))+';services');
 const slugs=['plumbing-repairs','heating-cooling','drain-repairs','commercial-plumbing','bathroom-remodelling','gas-line-services'];
@@ -9,7 +10,7 @@ const serviceHeading=name=>name.includes(' & ')?name.replace(' & ',' &<br><span>
 const escape=s=>String(s).replaceAll('&','&amp;').replaceAll('"','&quot;').replaceAll('<','&lt;').replaceAll('>','&gt;');
 const routes=[['index','Home'],['about','About'],['services','Services'],['process','How it works'],['reviews','Reviews'],['faq','FAQs'],['contact','Contact']];
 const nav=current=>routes.map(([key,label])=>`<a href="${key}.html" ${current===key?'aria-current="page"':''}>${label}</a>`).join('');
-const cards=(list=services)=>list.map(s=>`<article class="service-card reveal" data-category="${s.category}"><div class="service-top">${icon(s.icon)}<span>0${services.indexOf(s)+1}</span></div><h3>${s.name}</h3><p>${s.short}</p><a class="text-link service-link" href="service-${s.slug}.html" aria-label="Explore ${s.name}">Explore service <span class="plus" aria-hidden="true">+</span></a></article>`).join('');
+const cards=(list=services)=>list.map(s=>photoCard(s,services.indexOf(s))).join('');
 const cta=()=>`<section class="wrap page-cta reveal"><div><p class="eyebrow">YOUR NEXT CHAPTER</p><h2>Let’s get it sorted.</h2><p>A small fix or a bigger plan. Start with a conversation.</p></div><button class="button white" data-quote>Get a free quote</button></section>`;
 const intro=(title,kicker,description)=>`<section class="wrap page-intro"><div class="breadcrumbs"><a href="index.html">Home</a><span>/</span><span>${kicker}</span></div><p class="eyebrow">${kicker.toUpperCase()}</p><h1>${title}</h1><p class="intro-description">${description}</p></section>`;
 const faqs=[
@@ -25,7 +26,7 @@ const faqs=[
 ];
 let template=await readFile(new URL('src/template.html',import.meta.url),'utf8');
 template=template.replace(/<a class="brand"[^>]*>.*?<\/a>/g,`<a class="brand original-brand" href="index.html" aria-label="TRST Maintenance home"><img src="assets/trst-logo.jpg" width="184" height="63" alt="TRST"><span class="original-brand-name">MAINTENANCE LTD</span></a>`);
-template=template.replace('<link rel="stylesheet" href="styles.css">','<link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="enhancements.css">');
+template=template.replace('<link rel="stylesheet" href="styles.css">','<link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="enhancements.css"><link rel="stylesheet" href="visuals.css">');
 template=template.replace('<body>','<body><div class="reading-progress" aria-hidden="true"></div>');
 template=template.replace(/<dialog id="service-dialog"[\s\S]*?<\/dialog>/,'');
 template=template.replace(/<footer class="wrap">[\s\S]*?<\/footer>/,`<footer class="wrap"><div class="footer-top"><a class="brand original-brand" href="index.html" aria-label="TRST Maintenance home"><img src="assets/trst-logo.jpg" width="184" height="63" alt="TRST"><span class="original-brand-name">MAINTENANCE LTD</span></a><p>Good hands. Great results.</p><a href="#main" class="text-link">Back to top <span class="plus">+</span></a></div><nav class="footer-nav" aria-label="Footer navigation">${nav('')}</nav><div class="footer-bottom"><span>© 2026 TRST Maintenance Ltd.</span><span>Independent design concept · Demo quote form</span><button class="plain-link" id="concept-info">About this prototype</button></div><div class="agency-credit">Designed & developed by <a href="https://atarionsolutions.com/" target="_blank" rel="noopener noreferrer">Atarion Solutions <span aria-hidden="true">↗</span></a></div></footer>`);
@@ -36,7 +37,10 @@ home=home.replace('<p class="hero-description">',`<div class="audience-switch" r
 home=home.replace('Let’s take care of your property.','Explore a little. Tell us what you need.');
 home=home.replace('<section class="section wrap" id="process">','<section class="section wrap reveal" id="process">').replace('<section class="about-section"','<section class="about-section reveal"');
 home=home.replace('Start with a free quote</button>','Start with a free quote</button>').replace('</div><div class="steps">','</div><div class="steps">');
-const graphic=`<div class="service-map reveal" aria-label="Explore property services"><div class="map-grid" aria-hidden="true"></div><div class="map-centre">${icon('house')}<span>Your property</span><small>Connected care</small></div>${services.map((s,i)=>`<a class="map-node node-${i}" href="service-${s.slug}.html">${icon(s.icon)}<span>${s.name}</span></a>`).join('')}<p class="map-caption">EXPLORE THE SERVICES AROUND YOUR PROPERTY</p></div>`;
+home=home.replace(/<div class="hero-visual">[\s\S]*?<\/section>/,heroShowcase+'</section>');
+home=home.replace(/<section class="section wrap reveal" id="process">[\s\S]*?<\/section>/,processAccordion);
+home=home.replace('YOUR PROPERTY. OUR PRIORITY.','PLUMBING. HEATING. PROPERTY CARE.');
+const graphic=flowPanel;
 const pages={
  index:{title:'Good hands. Great results.',description:'Plumbing, heating and property maintenance. Explore the new TRST Maintenance design concept.',html:home},
  about:{title:'About TRST',description:'Get to know the proposed approach to property care at TRST Maintenance in Willenhall.',html:`${intro('A local name.<br><span>A personal approach.</span>','About TRST','Good property care starts with understanding the people who live and work there.')}<section class="wrap story-grid"><div class="story-image reveal"><img src="assets/plumber.jpg" alt="Plumber working on a kitchen tap" width="700" height="470"><span>THE DETAILS MAKE THE DIFFERENCE.</span></div><div class="story-text reveal"><p class="eyebrow">BASED IN WILLENHALL</p><h2>For the places<br>you depend on.</h2><p>Your home should feel comfortable. Your business needs to keep moving. And when something needs attention, you need a clear place to start.</p><p>TRST Maintenance’s service range brings together plumbing, heating, drainage and property improvements. From the everyday issue to a bigger plan, tell the team what your property needs.</p><a class="text-link" href="services.html">Find your service <span class="plus">+</span></a></div></section><section class="section wrap"><div class="section-heading reveal"><div><p class="eyebrow">THE APPROACH</p><h2>Good work starts<br>with a good conversation.</h2></div></div><div class="editorial-values">${[['Listen first.','Every property is different. The first step is understanding your priorities, your space and the problem you want to solve.'],['Make it clear.','Talk through the scope, access and next steps. Get the information you need before agreeing to the work.'],['Think it through.','A practical plan makes all the difference. Discuss the details that matter, from timing to how your property is used.']].map((v,i)=>`<article class="reveal"><span>0${i+1}</span><h3>${v[0]}</h3><p>${v[1]}</p></article>`).join('')}</div></section>${cta()}`},
@@ -54,10 +58,15 @@ services.forEach((s,i)=>{pages['service-'+s.slug]={title:s.name,description:s.sh
 for(const [key,page] of Object.entries(pages)){
  let html=template.replace(/<title>.*?<\/title>/,`<title>${page.title} | TRST Maintenance</title>`).replace(/<meta name="description" content="[^"]*">/,`<meta name="description" content="${escape(page.description)}">`).replace(/<main id="main">[\s\S]*?<\/main>/,`<main id="main">${page.html}</main>`);
  html=html.replace(/<nav class="desktop-nav"[\s\S]*?<\/nav>/,`<nav class="desktop-nav" aria-label="Main navigation">${nav(key.startsWith('service-')?'services':key)}</nav>`).replace(/<nav id="mobile-nav"[\s\S]*?<\/nav>/,`<nav id="mobile-nav" class="mobile-nav" aria-label="Mobile navigation" hidden>${nav(key.startsWith('service-')?'services':key)}<button class="button" data-quote>Get a free quote</button></nav>`);
+ if(key.startsWith('service-')){const index=services.findIndex(s=>'service-'+s.slug===key);html=html.replace(/<div class="detail-service-art reveal">[\s\S]*?<\/div><\/section>/,detailPhoto(index)+'</section>');}
+ html=html.replace('The photography is reused from that site for this concept and is not verified project photography.','Photography combines images from the original website with AI-generated service illustrations. None is presented as verified TRST project photography.');
+ html=html.replace('</body>','<script src="motion.js"></script></body>');
  await writeFile(new URL(`dist/${key}.html`,import.meta.url),html);
 }
 await writeFile(new URL('dist/styles.css',import.meta.url),await readFile(new URL('src/styles.css',import.meta.url)));
 await writeFile(new URL('dist/enhancements.css',import.meta.url),await readFile(new URL('src/enhancements.css',import.meta.url)));
 await writeFile(new URL('dist/app.js',import.meta.url),await readFile(new URL('src/app.js',import.meta.url)));
+await writeFile(new URL('dist/visuals.css',import.meta.url),await readFile(new URL('src/visuals.css',import.meta.url)));
+await writeFile(new URL('dist/motion.js',import.meta.url),await readFile(new URL('src/motion.js',import.meta.url)));
 console.log(`Built ${Object.keys(pages).length} static pages.`);
 

@@ -11,6 +11,7 @@ for(const file of files){
  assert.match(html,/https:\/\/atarionsolutions\.com\//,`${file}: missing agency credit`);
  assert.match(html,/src="assets\/trst-logo.jpg"/,`${file}: missing original logo`);
  assert.match(html,/aria-current="page"/,`${file}: missing active navigation`);
+ assert.match(html,/<script src="motion.js"><\/script>/,`${file}: missing motion enhancement`);
  for(const [,url] of html.matchAll(/(?:href|src)="([^"]+)"/g)){
   if(/^(?:https?:|mailto:|tel:|data:)/.test(url))continue;
   const [path,hash]=url.split('#');const target=path?resolve(dirname(resolve(root,file)),path):resolve(root,file);
