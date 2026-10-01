@@ -20,3 +20,74 @@ body{background:#fcfdfc}p{line-height:1.8}h1,h2,h3{text-wrap:balance}button,a{-w
 @media(max-width:700px){.wrap{width:calc(100% - 40px)}.hero{padding-block:36px 48px;gap:36px}.hero h1{font-size:clamp(47px,11.8vw,72px)}.hero-copy>.eyebrow{font-size:12px;letter-spacing:1px}.hero-description{min-height:0;font-size:17px}.audience-switch{grid-template-columns:1fr 1fr;gap:9px}.audience-switch button{display:block;padding:15px 12px;min-height:125px}.audience-switch .icon{margin-bottom:8px}.audience-switch strong{font-size:14px}.audience-switch small{font-size:12px}.audience-switch b{position:absolute;top:12px;right:11px}.hero-actions{flex-wrap:nowrap;gap:18px}.hero-actions .button{padding-inline:18px;font-size:14px}.hero-actions .text-link{font-size:13px;gap:8px}.hero-photo-stage{height:410px}.hero-slide h2{font-size:34px}.hero-showcase{border-radius:14px 14px 40px 14px}.showcase-label{font-size:9px;left:18px;right:18px;letter-spacing:.25px;width:max-content;max-width:calc(100% - 36px)}.hero-foot strong,.hero-foot div>span{font-size:14px}.values{gap:9px;padding-block:18px}.benefit-card{padding:18px 12px;display:block;background:#ffffff85;border:1px solid #dce8eb}.values .icon{margin-bottom:12px}.benefit-card strong{font-size:15px}.benefit-card span{font-size:13px}.benefit-card b{opacity:1}.eyebrow,.process-story-left>.eyebrow,.section-heading .eyebrow,.about-copy .eyebrow,.faq-grid .eyebrow,.preparation .eyebrow,.contact-start .eyebrow,.story-text .eyebrow{font-size:12px}.section{padding-block:62px}.section-heading h2{font-size:36px}.service-grid{gap:24px;grid-template-columns:1fr}.service-photo{height:240px}.service-card-copy{padding:24px}.service-card-copy h3{font-size:25px}.service-card-copy p{font-size:17px}.service-card-copy .service-link{font-size:15px}.image-provenance{font-size:12px}.about-photo img{height:350px}.home-process{padding-block:62px}.process-story{grid-template-columns:1fr;gap:32px}.process-story-left>h2{font-size:42px}.process-story-left>p:not(.eyebrow){font-size:17px}.process-accordion{margin-top:0}.process-accordion-trigger>span:nth-child(2){font-size:21px}.process-accordion-trigger{padding-block:25px}.process-accordion-panel>div{padding:0 4px 27px 0}.process-accordion-panel p{font-size:17px}.process-accordion-panel .text-link{font-size:15px}.step-scene figcaption{padding:18px 20px}.step-scene figcaption strong{font-size:20px}.illustration-label{padding-inline:20px}.faq-grid,.faq-page{grid-template-columns:1fr;gap:35px}.faq-sidebar{position:static}.faqs details{padding-inline:13px}.faqs summary,.faqs summary>.faq-question{font-size:17px}.faqs details p{font-size:17px}.faq-answer{grid-template-columns:22px 1fr;gap:12px}.faq-water svg{width:22px}.faq-question>small{font-size:12px}.process-explorer{grid-template-columns:1fr}.process-controls{padding:20px}.process-controls>button{font-size:17px;padding:19px 14px}.process-panels{padding:25px 22px}.process-panels h2{font-size:32px}.stage-visual img{max-height:none}.choice-guide{grid-template-columns:1fr}.choice-buttons{padding:20px}.choice-buttons button{font-size:17px}.choice-result{padding:27px}.choice-result h3{font-size:28px}.comfort-guide,.business-brief-grid,.bathroom-planner,.gas-enquiry,.journey-preparation,.feedback-guide,.contact-brief,.local-story{grid-template-columns:1fr;gap:35px}.comfort-columns{gap:20px}.comfort-columns p{font-size:16px}.comfort-guide img{height:330px}.business-brief{padding-block:60px}.business-brief h2,.bathroom-planner h2,.gas-heading h2{font-size:36px}.priority-options{grid-template-columns:1fr}.bathroom-planner aside{padding:29px}.brief-checklist{padding:25px}.journey-preparation>div:last-child{grid-row:1}.local-story{padding:29px;margin-top:50px}.feedback-guide h2{font-size:35px}.contact-brief h2{font-size:36px}.message-outline{padding:17px 23px}.message-outline p{font-size:16px}.service-finder{padding:25px;margin-top:30px}.service-finder>div{grid-template-columns:1fr}.service-finder a{font-size:16px;padding:19px}.service-detail-hero h1{font-size:44px}.service-detail-hero>div>p:not(.eyebrow){font-size:17px}.service-detail-photo{height:340px}.service-detail-photo:has(img[src$=".svg"]){min-height:0;padding-bottom:40px}.service-photo-caption>span{font-size:10px}.detail-photo-number{font-size:12px;top:12px;right:12px}.scope-list h3{font-size:19px}.scope-note{font-size:14px}.footer-bottom{padding-bottom:24px;font-size:12px}.agency-credit{padding-bottom:105px;line-height:1.8}.agency-credit a{display:inline-block}.page-cta{padding:32px 27px}.page-cta p:not(.eyebrow){font-size:17px}.contact-links small,.location-card small,.contact-method>small{font-size:12px}.contact-links strong{font-size:17px}.flow-heading>span{font-size:10px}.flow-toggle{font-size:12px}.flow-links>a{font-size:13px}.editorial-values article{padding:25px}.contact-start{position:static}.filter-buttons{flex-wrap:wrap}.directory-heading h2{font-size:34px}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}.photo-service:is(:hover,:focus-within),.motion-ready .photo-service.in-view:is(:hover,:focus-within),.audience-switch button:is(:hover,:focus-visible),.benefit-card:is(:hover,:focus-visible),.choice-buttons button:is(:hover,:focus-visible),.priority-options button:is(:hover,:focus-visible),.service-finder a:is(:hover,:focus-visible),.button:is(:hover,:focus-visible){transform:none}.photo-service:is(:hover,:focus-within) .service-photo img{transform:none}}
 @media(max-width:700px){.process-visuals{display:none}.mobile-step-visual{display:block;margin:0 0 23px;border:1px solid #c6dce3;border-radius:10px;overflow:hidden;background:#fff}.mobile-step-visual img{display:block;width:100%;height:auto;object-fit:contain}.mobile-step-visual figcaption{padding:13px 17px;background:#143448;color:white;font-size:16px;line-height:1.5}}
+/* A quieter About image, a compact contact page and a shared editorial footer. */
+.about-photo,.story-image{border-radius:16px;overflow:hidden}
+.about-photo img{height:560px;object-fit:cover;object-position:center 52%;filter:none}
+.story-image img{height:440px;object-fit:cover;object-position:center 46%;filter:none}
+.about-photo .photo-caption{padding:90px 32px 30px;background:linear-gradient(transparent,#142f41d9)}
+.about-photo .photo-caption>span{font-size:11px;letter-spacing:1.5px}
+.about-photo .photo-caption strong{font-size:32px;line-height:1.2}
+.story-image>span{padding:48px 28px 24px;background:linear-gradient(transparent,#142f41c9)}
+.site-footer{border-top:1px solid var(--line);background:#f0f5f5;padding:0}
+.footer-content{display:grid;grid-template-columns:1.3fr 1.1fr .8fr;gap:48px;padding-block:38px 30px;align-items:start}
+.footer-brand-block .original-brand{display:inline-flex}
+.footer-brand-block>p{font-size:16px;font-weight:600;margin:15px 0 3px}
+.footer-brand-block>span,.footer-contact-block>a,.footer-address-block address{font-size:14px;line-height:1.8;color:var(--muted)}
+.footer-contact-block h2,.footer-address-block h2{font-family:var(--font);font-size:15px;font-weight:650;letter-spacing:0;line-height:1.5;margin:0 0 13px}
+.footer-contact-block>a{display:block;width:fit-content;margin-block:5px;overflow-wrap:anywhere}
+.footer-contact-block>a:first-of-type{font-size:19px;font-weight:600;color:var(--ink)}
+.footer-address-block address{font-style:normal}
+.footer-meta{border-top:1px solid var(--line);display:flex;align-items:center;gap:20px;padding-block:18px;font-size:12px;line-height:1.7;color:var(--muted)}
+.footer-meta .plain-link{font-size:12px;color:var(--muted);padding:4px 0}
+.footer-credit{margin-left:auto}
+.footer-credit a{font-weight:650;color:var(--ink);white-space:nowrap}
+.site-footer a:hover,.footer-meta .plain-link:hover{color:var(--blue);text-decoration:underline;text-underline-offset:4px}
+.contact-compact{max-width:1120px;padding-block:32px 38px}
+.contact-heading{margin-bottom:25px}
+.contact-heading .eyebrow{color:var(--blue);font-size:11px;margin-bottom:8px}
+.contact-heading h1{font-size:clamp(38px,4vw,54px);line-height:1.12;letter-spacing:-.045em;margin:0 0 12px}
+.contact-heading h1 span{color:var(--blue)}
+.contact-heading>p:last-child{font-size:16px;line-height:1.6;color:var(--muted);margin:0}
+.contact-panel{display:grid;grid-template-columns:1.2fr 1fr;border:1px solid var(--line);border-radius:16px;overflow:hidden;background:#fff;box-shadow:0 12px 35px #14344808}
+.contact-direct{padding:10px 32px}
+.contact-channel{display:flex;gap:16px;align-items:center;padding-block:21px;border-bottom:1px solid var(--line)}
+.contact-channel>.icon,.contact-location>.icon{flex-shrink:0;width:22px;height:22px;color:var(--blue)}
+.contact-channel>span{min-width:0}
+.contact-channel small,.contact-location small{display:block;font-size:10px;font-weight:650;letter-spacing:1.1px;color:var(--muted);line-height:1.5;margin-bottom:5px}
+.contact-channel strong{display:block;font-size:clamp(16px,1.65vw,21px);line-height:1.4;font-weight:650;overflow-wrap:anywhere}
+.contact-channel>span>span{display:block;font-size:13px;line-height:1.6;color:var(--muted);margin-top:4px}
+.contact-channel>b{margin-left:auto;color:var(--blue);font-weight:400}
+.contact-channel:hover strong{color:var(--blue)}
+.contact-location{display:flex;gap:16px;align-items:flex-start;padding-block:20px}
+.contact-location address{font-size:13px;font-style:normal;line-height:1.6}
+.contact-location a{display:inline-block;font-size:12px;color:var(--blue);margin-top:6px;text-decoration:underline;text-underline-offset:3px}
+.contact-quote-card{position:relative;isolation:isolate;overflow:hidden;background:#153e55;color:white;padding:27px 32px;display:flex;flex-direction:column;align-items:flex-start;justify-content:center}
+.contact-quote-card:after{content:'';position:absolute;z-index:-1;width:155px;height:220px;right:-70px;top:-55px;border:18px double #74bfd02b;border-radius:48px;transform:rotate(30deg);pointer-events:none}
+.contact-quote-icon{position:absolute;top:24px;right:27px;color:#a3dbe5}
+.contact-quote-icon .icon{height:31px;width:31px}
+.contact-quote-card .eyebrow{font-size:10px;letter-spacing:1.2px;color:#b8dfe7;margin:0 45px 13px 0}
+.contact-quote-card h2{font-size:30px;line-height:1.2;letter-spacing:-.03em;margin:0 0 13px}
+.contact-quote-card>p:not(.eyebrow){font-size:14px;line-height:1.7;color:#d4e3e9;margin:0 0 21px;max-width:31ch}
+.contact-quote-card .button{gap:24px;min-height:47px;padding:12px 19px;font-size:14px}
+.contact-quote-card .contact-demo{font-size:11px!important;line-height:1.6!important;margin:12px 0 0!important;max-width:none!important;color:#c1d6df!important}
+@media(max-width:1000px){
+ .footer-content{gap:30px;grid-template-columns:1fr 1fr}.footer-address-block{grid-column:2;grid-row:2}.footer-brand-block{grid-row:1 / 3}
+ .footer-meta{flex-wrap:wrap;gap:8px 20px}.footer-credit{margin-left:auto}
+ .contact-direct{padding-inline:23px}.contact-quote-card{padding-inline:25px}.contact-quote-card h2{font-size:28px}
+}
+@media(max-width:700px){
+ .about-photo img{height:390px}.story-image img{height:360px}.about-photo .photo-caption{padding:75px 25px 25px}
+ .footer-content{padding-block:30px;gap:26px 22px}.footer-brand-block{grid-column:1 / -1;grid-row:auto}.footer-contact-block{grid-column:1 / -1}.footer-address-block{grid-column:1 / -1;grid-row:auto}
+ .footer-meta{align-items:flex-start;flex-direction:column;padding-block:18px calc(95px + env(safe-area-inset-bottom));gap:10px}.footer-credit{margin-left:0}
+ .contact-compact{padding-block:28px 35px}.contact-heading{margin-bottom:22px}.contact-heading h1{font-size:40px}.contact-heading>p:last-child{font-size:15px;max-width:32ch}
+ .contact-panel{grid-template-columns:1fr}.contact-direct{padding:0 22px}.contact-channel{padding-block:20px;gap:12px}.contact-channel strong{font-size:18px}.contact-channel>span>span{font-size:12px}.contact-location{gap:12px}
+ .contact-quote-card{padding:27px 24px}.contact-quote-card h2{font-size:29px}.contact-quote-card>p:not(.eyebrow){max-width:35ch}.contact-quote-card .button{width:100%;justify-content:space-between}
+}
+@media(min-width:1001px) and (max-height:800px){
+ body[data-page=contact] .contact-compact{padding-block:22px 26px}
+ body[data-page=contact] .contact-heading{margin-bottom:18px}
+ body[data-page=contact] .contact-heading h1{font-size:44px}
+ body[data-page=contact] .contact-channel{padding-block:16px}
+ body[data-page=contact] .contact-location{padding-block:16px}
+ body[data-page=contact] .footer-content{padding-block:22px 18px}
+}

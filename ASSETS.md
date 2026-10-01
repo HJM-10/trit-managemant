@@ -13,6 +13,14 @@ The following new assets were created with the built-in image generation tool fo
 
 The animated plumbing schematic is a conceptual service-navigation graphic, not an installation diagram or technical instruction. Its paths are animated in CSS and can be paused. OS reduced-motion preferences disable automatic animation.
 
+## About interior — October 2026
+
+`dist/assets/property-care-interior.png` was generated with the built-in image generation tool for the homepage About section and the About page. It is a generic home-interior concept, not a photograph of a TRST project. Its provenance is explained in the retained “About this prototype” dialog rather than an overlay on the image.
+
+Final generation prompt:
+
+> Use case: photorealistic-natural. Asset type: website About section illustration, generic concept interior, not a real contractor portfolio photograph. Generate one beautiful restrained editorial architectural visualization of a welcoming contemporary British home interior. Portrait 4:5 composition. Foreground on left: refined brushed-chrome curved kitchen tap above pale stone undermount sink with subtle realistic water-free reflections. Navy blue shaker lower cabinetry and pale limestone worktop, no exaggerated luxury. View leads naturally rightward into a bright living/dining space, oak flooring, white traditional radiator beneath a large sash window, a small green indoor plant, warm soft afternoon daylight. Beautiful coherent realistic architectural geometry and hardware. Calm lived-in warmth with very few carefully composed objects. Colors: navy, soft ivory, pale oak and natural green. Mid-distance view, not an extreme tap close-up. Main focal elements within central 75 percent so image works in both portrait and landscape crop. Keep bottom 20 percent visually simple for a small white caption overlay added separately. No people, tools, work crews, logos, signs, lettering, text, badges or watermarks. The mood is thoughtful care for everyday spaces. Avoid glossy mansion real estate styling and excessive decoration.
+
 ## Version 4 illustrations
 
 Original SVG illustrations are generated deterministically from `src/illustrations.mjs`:

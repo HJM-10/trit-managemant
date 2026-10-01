@@ -42,16 +42,12 @@ export function refinePage(key,html){
  if(key==='reviews'){
   html=html.replace('<section class="wrap page-cta',`<section class="wrap section feedback-guide"><div><p class="eyebrow">A USEFUL WAY TO COMPARE</p><h2>Look for the details<br>behind a review.</h2><p>While verified TRST feedback is pending, these questions can help you evaluate any property service.</p></div><div class="faqs">${[['Was the work similar?','Look for experiences that describe the same type of property and work you have in mind. Context is more useful than a score alone.'],['Was the scope clear?','Ask how the work, quote and timing were explained, and how any changes were discussed.'],['Can the source be checked?','Use the original source where possible. No ratings or customer quotes are presented here until genuine feedback is supplied and approved.']].map(([q,a])=>`<details><summary>${q}<span>+</span></summary><p>${a}</p></details>`).join('')}</div></section><section class="wrap page-cta`);
  }
- if(key==='contact'){
-  html=html.replace('<section class="section wrap">',`<section class="wrap section contact-brief"><div><p class="eyebrow">KEEP YOUR ENQUIRY CLEAR</p><h2>A useful message<br>in four lines.</h2><p>Use these prompts when emailing or calling the team.</p></div><div class="message-outline"><p><span>01</span>My property is in <strong>[postcode]</strong>.</p><p><span>02</span>I need help with <strong>[issue or project]</strong>.</p><p><span>03</span>The property is a <strong>[home or business]</strong>.</p><p><span>04</span>My timing or access needs are <strong>[details]</strong>.</p></div></section><section class="section wrap">`);
- }
  if(key.startsWith('service-')){
   const slug=key.slice(8);
   html=html.replace('<section class="detail-next">',`${serviceExtras[slug]?.()||''}<section class="detail-next">`);
  }
- // Visible provenance on every image treatment, including the original site's photos.
+ // Hero service provenance remains visible; About imagery is documented in the prototype dialog.
  html=html.replace('<span class="showcase-label">TRST / CARE IN EVERY DETAIL</span>','<span class="showcase-label">SERVICE IMAGERY · NOT VERIFIED TRST WORK</span>');
- html=html.replace(/(<div class="(?:story-image reveal|about-photo)"><img[^>]+>)/g,'$1<span class="source-photo-label">Original website image · Project unverified</span>');
  // Native details remain usable without JavaScript; body wrapper enables closing animation.
  html=html.replace(/(<details\b[^>]*>)([\s\S]*?<\/summary>)([\s\S]*?)(<\/details>)/g,(_m,start,summary,body)=>`${start}${summary}<div class="faq-answer"><div class="faq-water" aria-hidden="true"><svg viewBox="0 0 60 140"><path class="faq-pipe" d="M12 0v95q0 18 18 18h28"/><path class="faq-stream" pathLength="100" d="M12 0v95q0 18 18 18h28"/></svg></div><div class="faq-answer-copy">${body}</div></div></details>`);
  return html.replace('<body>','<body data-page="'+key+'">');
