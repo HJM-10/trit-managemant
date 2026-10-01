@@ -1,9 +1,10 @@
+import {brand} from './brand.mjs';
 const icon = name => `<svg class="icon" aria-hidden="true"><use href="#i-${name}"/></svg>`;
 
 export const siteFooter = `<footer class="site-footer">
   <div class="wrap footer-content">
     <div class="footer-brand-block">
-      <a class="brand original-brand" href="index.html" aria-label="TRST Maintenance home"><img src="assets/trst-logo.jpg" width="184" height="63" alt="TRST"><span class="original-brand-name">MAINTENANCE LTD</span></a>
+      ${brand}
       <p>Good hands. Great results.</p>
       <span>Plumbing, heating & property care.</span>
     </div>

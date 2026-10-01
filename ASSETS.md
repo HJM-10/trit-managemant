@@ -31,4 +31,10 @@ Original SVG illustrations are generated deterministically from `src/illustratio
 - `step-plan.svg`: property plan and scope checklist.
 - `step-agree.svg`: appointment and agreed details.
 
-All are labelled illustrations, not TRST jobs. Service cards distinguish original-site photographs, AI illustrations and vector illustrations. The original TRST logo is unchanged. Cooling imagery is now used on the heating and cooling page, where it is relevant.
+All are labelled illustrations, not TRST jobs. Service cards distinguish original-site photographs, AI illustrations and vector illustrations. The original TRST logo was retained in version 4; the approved Option 1 identity below supersedes it. Cooling imagery is now used on the heating and cooling page, where it is relevant.
+
+## Option 1: architectural flow — approved 1 October 2026
+
+The approved house-and-pipe logo is authored as scalable SVG in `src/trst-property-care.svg`, with the matching favicon in `src/trst-mark.svg`. These are copied into `dist/assets/` at build time. The original `trst-logo.jpg` is retained as an archival source.
+
+`dist/assets/architecture-left.png` and `dist/assets/architecture-right.png` were created using the built-in image generation tool with the approved Option 1 mockup as the visual reference. Both are transparent generic architectural illustrations, not photographs or depictions of a TRST project. They are decorative and hidden from assistive technology. See `design/architecture-prompts.md` for the exact generation prompts.

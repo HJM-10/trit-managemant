@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 210 64" fill="none">
+  <title>TRST Property Care</title>
+  <g stroke="#142f41" stroke-width="4.6" stroke-linejoin="round" stroke-linecap="square">
+    <path d="M5 27 28 6 51 27v29H34V36c0-5-3-8-8-8h-6v28"/>
+    <path d="M8 37v19" stroke="#1267a2"/>
+    <path d="M42 16v-6"/>
+  </g>
+  <g fill="#142f41">
+    <text x="65" y="43" font-family="Arial, Helvetica, sans-serif" font-size="44" font-weight="700" letter-spacing="1">TRST</text>
+    <text x="67" y="58" font-family="Arial, Helvetica, sans-serif" font-size="8.5" font-weight="700" letter-spacing="2.65">PROPERTY CARE</text>
+  </g>
+</svg>

@@ -2,7 +2,7 @@
 
 A responsive, interactive pitch website designed and developed by [Atarion Solutions](https://atarionsolutions.com/).
 
-The design preserves TRST's original logo and develops it into a navy-and-blue visual system with dedicated pages, purposeful motion and a clearer enquiry journey. This is an independent concept, not TRST's official website.
+The design uses the approved Option 1 house-and-pipe logo and architectural illustrations in a navy-and-blue visual system with dedicated pages, purposeful motion and a clearer enquiry journey. This is an independent concept, not TRST's official website.
 
 ## Run locally
 
@@ -27,7 +27,7 @@ This starts Node in a hidden background process, checks readiness and reuses an 
 npm run check
 ```
 
-Checks syntax, all 13 pages, local page/asset/anchor references, original logo, footer credits, active navigation and demo-only form handling.
+Checks syntax, all 13 pages, local page/asset/anchor references, approved logo, footer credits, active navigation and demo-only form handling.
 
 ## Pages
 
@@ -113,3 +113,9 @@ Before production: approve copy, provide authorised photography and reviews, con
 - Tools photo: https://trst-maintenance.co.uk/wp-content/uploads/2020/08/plumbing-pipe-wrench.jpg
 
 **Designed & developed by [Atarion Solutions](https://atarionsolutions.com/).** This credit appears on every page and is retained in project instructions.
+
+## Approved architectural direction (1 October 2026)
+
+Option 1 is implemented through `src/brand.mjs`, `src/trst-property-care.svg`, `src/trst-mark.svg`, `src/architecture.css` and `src/architecture.js`. The original logo asset remains archived. Decorative transparent illustrations frame the outer margins on screens at least 1440px wide; they never enter the 1280px content column. The picture sources avoid downloading these assets on smaller screens.
+
+Artwork moves only in response to scrolling, capped at 70px on the left and 45.5px on the right. Reduced-motion preferences disable the effect, including when changed while the page is open. All earlier About, footer and contact-page improvements are retained.

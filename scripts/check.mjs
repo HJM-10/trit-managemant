@@ -9,14 +9,14 @@ for(const file of files){
  const html=await readFile(resolve(root,file),'utf8');
  assert.equal((html.match(/<h1[\s>]/g)||[]).length,1,`${file}: expected one H1`);
  assert.match(html,/https:\/\/atarionsolutions\.com\//,`${file}: missing agency credit`);
- assert.match(html,/src="assets\/trst-logo.jpg"/,`${file}: missing original logo`);
+ assert.match(html,/src="assets\/trst-property-care.svg"/,`${file}: missing approved architectural logo`);
  assert.match(html,/aria-current="page"/,`${file}: missing active navigation`);
  assert.match(html,/<script src="motion.js"><\/script>/,`${file}: missing motion enhancement`);
  assert.match(html,/<script src="refinements.js"><\/script>/,`${file}: missing interactions`);
  const ids=[...html.matchAll(/\bid="([^"]+)"/g)].map(m=>m[1]);
  assert.equal(ids.length,new Set(ids).size,`${file}: duplicate element IDs`);
  for(const [,id] of html.matchAll(/aria-controls="([^"]+)"/g))assert.ok(ids.includes(id),`${file}: missing controlled element ${id}`);
- for(const [,url] of html.matchAll(/(?:href|src)="([^"]+)"/g)){
+ for(const [,url] of html.matchAll(/(?:href|src|srcset)="([^"]+)"/g)){
   if(/^(?:https?:|mailto:|tel:|data:)/.test(url))continue;
   const [path,hash]=url.split('#');const target=path?resolve(dirname(resolve(root,file)),path):resolve(root,file);
   await access(target);references++;
@@ -37,4 +37,4 @@ const hosting=JSON.parse(await readFile(resolve(root,'../vercel.json'),'utf8'));
 assert.equal(hosting.framework,null,'Use static hosting, not a server framework');
 assert.equal(hosting.outputDirectory,'dist','Publish generated static pages');
 assert.ok(!hosting.functions&&!hosting.rewrites&&!hosting.routes,'Static pages must not route to a function');
-console.log(`PASS: ${files.length} pages; ${references} local references; original logo, agency credit, active navigation and demo-only data handling.`);
+console.log(`PASS: ${files.length} pages; ${references} local references; approved logo, agency credit, active navigation and demo-only data handling.`);

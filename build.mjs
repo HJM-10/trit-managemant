@@ -4,6 +4,8 @@ import {photoCard, detailPhoto, heroShowcase, flowPanel, processAccordion} from 
 import {illustrations} from './src/illustrations.mjs';
 import {refinePage} from './src/refinements.mjs';
 import {siteFooter, contactPage} from './src/presentation.mjs';
+import {brand, architecturalFrame} from './src/brand.mjs';
+for (const file of ['trst-property-care.svg','trst-mark.svg']) await writeFile(new URL(`dist/assets/${file}`,import.meta.url),await readFile(new URL(`src/${file}`,import.meta.url)));
 for(const [name,svg] of Object.entries(illustrations)) await writeFile(new URL(`dist/assets/${name}`,import.meta.url),svg);
 const original=await readFile(new URL('src/app-original.js',import.meta.url),'utf8');
 const services=vm.runInNewContext(original.slice(0,original.indexOf('const $'))+';services');
@@ -29,9 +31,9 @@ const faqs=[
  ['Services','Do you help with bathroom projects?','Bathroom and remodelling enquiries are part of the service range. Describe the fixtures, layout changes or plumbing improvements you have in mind.']
 ];
 let template=await readFile(new URL('src/template.html',import.meta.url),'utf8');
-template=template.replace(/<a class="brand"[^>]*>.*?<\/a>/g,`<a class="brand original-brand" href="index.html" aria-label="TRST Maintenance home"><img src="assets/trst-logo.jpg" width="184" height="63" alt="TRST"><span class="original-brand-name">MAINTENANCE LTD</span></a>`);
+template=template.replace(/<a class="brand"[^>]*>.*?<\/a>/g,brand);
 template=template.replace('<link rel="stylesheet" href="styles.css">','<link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="enhancements.css"><link rel="stylesheet" href="visuals.css">');
-template=template.replace('<body>','<body><div class="reading-progress" aria-hidden="true"></div>');
+template=template.replace('<body>',`<body>${architecturalFrame}<div class="reading-progress" aria-hidden="true"></div>`);
 template=template.replace(/<dialog id="service-dialog"[\s\S]*?<\/dialog>/,'');
 template=template.replace(/<footer class="wrap">[\s\S]*?<\/footer>/,siteFooter);
 template=template.replaceAll('href="#services"','href="services.html"').replaceAll('href="#about"','href="about.html"').replaceAll('href="#process"','href="process.html"').replaceAll('href="#contact"','href="contact.html"');
@@ -65,8 +67,8 @@ for(const [key,page] of Object.entries(pages)){
  if(key.startsWith('service-')){const index=services.findIndex(s=>'service-'+s.slug===key);html=html.replace(/<div class="detail-service-art reveal">[\s\S]*?<\/div><\/section>/,detailPhoto(index)+'</section>');}
  html=html.replace('The photography is reused from that site for this concept and is not verified project photography.','Imagery combines photographs from the original website with AI-generated service and home-interior illustrations. None is presented as verified TRST project photography.');
  html=refinePage(key,html);
- html=html.replace('</head>','<link rel="stylesheet" href="refinements.css"></head>');
- html=html.replace('</body>','<script src="motion.js"></script><script src="refinements.js"></script></body>');
+ html=html.replace('</head>','<link rel="stylesheet" href="refinements.css"><link rel="stylesheet" href="architecture.css"></head>');
+ html=html.replace('</body>','<script src="motion.js"></script><script src="refinements.js"></script><script src="architecture.js"></script></body>');
  await writeFile(new URL(`dist/${key}.html`,import.meta.url),html);
 }
 await writeFile(new URL('dist/styles.css',import.meta.url),await readFile(new URL('src/styles.css',import.meta.url)));
@@ -75,5 +77,5 @@ await writeFile(new URL('dist/app.js',import.meta.url),await readFile(new URL('s
 await writeFile(new URL('dist/visuals.css',import.meta.url),await readFile(new URL('src/visuals.css',import.meta.url)));
 await writeFile(new URL('dist/motion.js',import.meta.url),await readFile(new URL('src/motion.js',import.meta.url)));
 console.log(`Built ${Object.keys(pages).length} static pages.`);
-for(const file of ['refinements.css','refinements.js']) await writeFile(new URL(`dist/${file}`,import.meta.url),await readFile(new URL(`src/${file}`,import.meta.url)));
+for(const file of ['refinements.css','refinements.js','architecture.css','architecture.js']) await writeFile(new URL(`dist/${file}`,import.meta.url),await readFile(new URL(`src/${file}`,import.meta.url)));
 
